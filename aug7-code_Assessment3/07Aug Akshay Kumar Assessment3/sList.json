@@ -1,0 +1,2 @@
+[{"name": "Akshay", "rollno": 1, "admno": 10, "college": "SVCE", "parent": "Padma", "mobno": 7899863792, "email": "padma@gmail.com"}, {"s1marks": 21, "s2marks": 30, "s3marks": 31, "s4marks": 35, "s5marks": 16, "total": 133}, 
+{"name": "Manoj", "rollno": 2, "admno": 20, "college": "SVIT", "parent": "Murthy", "mobno": 9164046152, "email": "murhty665@gmail.com"}, {"s1marks": 21, "s2marks": 30, "s3marks": 31, "s4marks": 35, "s5marks": 16, "total": 133}, {"s1marks": 21, "s2marks": 25, "s3marks": 29, "s4marks": 34, "s5marks": 11, "total": 120}]
