@@ -1,0 +1,70 @@
+{% extends 'head.html' %}
+
+
+{% block mypage %}
+<div class="container">
+    <div class="row">
+        <div class="col col-12 col-sm-2 col-md-2 col-lg-2 col-xl-2 col-xxl-2"></div>
+            <div class="col col-12 col-sm-2 col-md-2 col-lg-2 col-xl-2 col-xxl-2"></div>
+
+            <form action="http://127.0.0.1:8000/books/deleteb/" method="post">
+                <table class="table table-borderless">
+                    <tr>
+                        <td>Book Name</td>
+                        <td><input name= "bname" type="text" class="form-control" placeholder="Enter Book Name"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><button type ="submit" class="btn btn-success">Get Book Details</button></td>
+                    </tr>
+    
+                </table>
+                </form>
+
+                {% if data %}
+                <form action="http://127.0.0.1:8000/books/deleteact/" method="post">
+                
+                    <table class="table table-borderless">
+                {% for n in data %}
+                        <tr>
+                            <td ></td>
+                            <td><input name = 'Newid' value ='{{n.id}}' type="hidden" class="form-control"> </td>
+                        </tr>
+                        <tr>
+                            <td style = "color:rgb(128, 2, 2);"><b>Book Name</b></td>
+                            <td><input readonly name = 'Newname' value ='{{n.bname}}' type="text" class="form-control"></td>
+                        </tr>
+                        <tr>
+                            <td style = "color:rgb(128, 2, 2);"><b>Author Name</b></td>
+                            <td><input readonly name = 'Newauthor' value ='{{n.author}}' type="text" class="form-control"></td>
+                        </tr>
+                        <tr>
+                            <td style = "color:rgb(128, 2, 2);"><b>Description</b></td>
+                            <td><input readonly name = 'Newdes' value ='{{n.descrip}}' type="text" class="form-control"></td>
+                        </tr>
+                        <tr>
+                            <td style = "color:rgb(128, 2, 2);"><b>Price</b></td>
+                            <td><input readonly name = 'Newprice' value ='{{n.price}}' type="number" class="form-control"></td>
+                        </tr>
+                        <tr>
+                            <td style = "color:rgb(128, 2, 2);"><b>Category</b></td>
+                            <td><input readonly name = 'Newcat' value ='{{n.category}}' type="text" class="form-control"></td>
+                        </tr>
+
+
+                        <tr>
+                            <td></td>
+                            <td><button type ="submit" class="btn btn-success">Delete Details </button></td>
+                        </tr>
+
+                        {% endfor %}
+                    </table>
+                
+                </form>
+                {% endif %}
+
+                        <div class="col col-12 col-sm-2 col-md-2 col-lg-2 col-xl-2 col-xxl-2"></div>
+                    </div> 
+    
+                </div>
+{% endblock %}

@@ -1,0 +1,79 @@
+{% extends 'common.html' %}
+
+
+{% block mypage %}
+
+<div class="container">
+    <div class="row">
+        <div class="col col-12 col-sm-2 col-md-2 col-lg-2 col-xl-2 col-xxl-2"></div>
+            <div class="col col-12 col-sm-2 col-md-2 col-lg-2 col-xl-2 col-xxl-2"></div>
+
+            <form action="http://127.0.0.1:8000/lib/updatel/" method="post">
+                <table class="table table-borderless">
+                    <tr>
+                        <td>Librarian Code</td>
+                        <td><input name= "lib_code" type="number" class="form-control" placeholder="Enter Librarian Code"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><button type ="submit" class="btn btn-danger">Search Librarian</button></td>
+                    </tr>
+    
+                </table>
+                </form>
+
+{% if data %}
+<form action="http://127.0.0.1:8000/lib/updateact/" method="post">
+                
+<table class="table table-borderless">
+{% for n in data %}
+
+<tr>
+    <td ></td>
+    <td><input name = 'Newid' value ='{{n.id}}' type="hidden" class="form-control"> </td>
+</tr>
+<tr>
+    <td style = "color:rgb(128, 2, 2);"><b>Librarian Code</b></td>
+    <td><input name = 'Newcode' value ='{{n.lib_code}}' type="number" class="form-control"></td>
+</tr>
+<tr>
+    <td style = "color:rgb(128, 2, 2);"><b>Librarian Name</b></td>
+    <td><input name = 'Newname' value ='{{n.lname}}' type="text" class="form-control"></td>
+</tr>
+<tr>
+    <td style = "color:rgb(128, 2, 2);"><b>Address</b></td>
+    <td><input name = 'Newadd' value ='{{n.add}}' type="text" class="form-control"></td>
+</tr>
+<tr>
+    <td style = "color:rgb(128, 2, 2);"><b>Mobile No</b></td>
+    <td><input name = 'Newmob' value ='{{n.mob}}' type="number" class="form-control"></td>
+</tr>
+<tr>
+    <td style = "color:rgb(128, 2, 2);"><b>Pincode</b></td>
+    <td><input name = 'Newpin' value ='{{n.pincode}}' type="text" class="form-control"></td>
+</tr>
+<tr>
+    <td style = "color:rgb(128, 2, 2);"><b>Email ID</b></td>
+    <td><input name = 'Newemail' value ='{{n.email}}' type="text" class="form-control"></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td><button type ="submit" class="btn btn-danger">Save Edit </button></td>
+</tr>
+
+
+
+
+{% endfor %}
+    </table>
+
+</form>
+{% endif %}
+
+            <div class="col col-12 col-sm-2 col-md-2 col-lg-2 col-xl-2 col-xxl-2"></div>   
+        </div> 
+                    
+    </div>
+
+{% endblock %}
