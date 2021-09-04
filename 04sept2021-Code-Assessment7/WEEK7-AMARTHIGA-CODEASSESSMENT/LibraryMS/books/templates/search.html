@@ -1,0 +1,61 @@
+{% extends 'head.html' %}
+
+
+{% block mypage %}
+
+<div class="container">
+    <div class="row">
+        <div class="col col-12 col-sm-2 col-md-2 col-lg-2 col-xl-2 col-xxl-2"></div>
+            <div class="col col-12 col-sm-2 col-md-2 col-lg-2 col-xl-2 col-xxl-2"></div>
+            
+            <form action="http://127.0.0.1:8000/books/searchb/" method="post">
+                <table class="table table-borderless">
+                    <tr>
+                        <td>Book Name</td>
+                        <td><input name= "bname" type="text" class="form-control" placeholder="Enter Book Name"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><button type ="submit" class="btn btn-success">Search Book</button></td>
+                    </tr>
+    
+                </table>
+                </form>
+{% if data %}
+<table class="table">
+                                    
+{% for i in data %}
+<tr>
+    <td style = "color:rgb(15, 14, 14);"> <b> Book Name</b></td>
+    <td>{{i.bname}}</td>
+</tr>
+<tr>
+    <td style = "color:rgb(15, 14, 14);"><b>Book Author</b></td>
+    <td>{{i.author}}</td>
+</tr>
+<tr>
+    <td style = "color:rgb(15, 14, 14);"><b>Description</b></td>
+    <td>{{i.descrip}}</td>
+</tr>
+<tr>
+    <td style = "color:rgb(15, 14, 14);"><b>Price</b></td>
+    <td>{{i.price}}</td>
+</tr>
+
+<tr>
+    <td style = "color:rgb(15, 14, 14);"><b>Category</b></td>
+    <td>{{i.category}}</td>
+</tr>
+
+
+{% endfor %}
+ </table>
+{% endif %}
+
+
+            <div class="col col-12 col-sm-2 col-md-2 col-lg-2 col-xl-2 col-xxl-2"></div>   
+        </div> 
+                    
+    </div>
+
+{% endblock %}
