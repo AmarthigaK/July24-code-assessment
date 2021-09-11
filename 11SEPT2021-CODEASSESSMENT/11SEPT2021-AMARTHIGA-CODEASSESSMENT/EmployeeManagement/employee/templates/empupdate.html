@@ -1,0 +1,81 @@
+{% extends 'empdashboard.html' %}
+
+{% block myContent  %}
+
+<div class="container">
+    <div class="row">
+        <div class="col col-12 col-sm-2 col-md-2 col-lg-2 col-xl-2 col-xxl-2"></div>
+            <div class="col col-12 col-sm-2 col-md-2 col-lg-2 col-xl-2 col-xxl-2"></div>
+
+            <form action="http://127.0.0.1:8000/employee/updateemp/" method="post">
+                <table class="table table-borderless">
+                    <tr>
+                        <td>Verify Password To Edit</td>
+                        <td><input name= "password" type="password" class="form-control" placeholder="Enter Password"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><button type ="submit" class="btn btn-success">Verify</button></td>
+                    </tr>
+    
+                </table>
+                </form>
+
+                {% if data %}
+                <form action="http://127.0.0.1:8000/employee/updateactionemp/" method="post">
+                                
+                <table class="table table-borderless">
+                {% for n in data %}
+                
+                <tr>
+                    <td ></td>
+                    <td><input name = 'Newid' value ='{{n.id}}' type="hidden" class="form-control"> </td>
+                </tr>
+                <tr>
+                    <td style = "color:rgb(128, 2, 2);"><b>Employee Code</b></td>
+                    <td><input name = 'Newcode' value ='{{n.empcode}}' type="text" class="form-control"></td>
+                </tr>
+                <tr>
+                    <td style = "color:rgb(128, 2, 2);"><b>Employee Name</b></td>
+                    <td><input name = 'Newname' value ='{{n.empname}}' type="text" class="form-control"></td>
+                </tr>
+                <tr>
+                    <td style = "color:rgb(128, 2, 2);"><b>Address</b></td>
+                    <td><input name = 'Newaddress' value ='{{n.address}}' type="text" class="form-control"></td>
+                </tr>
+                <tr>
+                    <td style = "color:rgb(128, 2, 2);"><b>Pincode</b></td>
+                    <td><input name = 'Newpin' value ='{{n.pincode}}' type="text" class="form-control"></td>
+                </tr>
+                <tr>
+                    <td style = "color:rgb(128, 2, 2);"><b>Mobile No</b></td>
+                    <td><input name = 'Newmob' value ='{{n.mobile}}' type="text" class="form-control"></td>
+                </tr>
+                <tr>
+                    <td style = "color:rgb(128, 2, 2);"><b>User Name</b></td>
+                    <td><input name = 'Newuser' value ='{{n.username}}' type="text" class="form-control"></td>
+                </tr>
+                <tr>
+                    <td style = "color:rgb(128, 2, 2);"><b>Password</b></td>
+                    <td><input name = 'Newpassword' value ='{{n.password}}' type="text" class="form-control"></td>
+                </tr>
+                
+                <tr>
+                    <td></td>
+                    <td><button type ="submit" class="btn btn-success">Save Edit </button></td>
+                </tr>
+                
+                
+                
+                
+                {% endfor %}
+                    </table>
+                
+                </form>
+                {% endif %}
+                
+                            <div class="col col-12 col-sm-2 col-md-2 col-lg-2 col-xl-2 col-xxl-2"></div>   
+                        </div> 
+                                    
+                    </div>
+{% endblock   %}
